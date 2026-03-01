@@ -39,5 +39,5 @@ jobs:
           SONAR_HOST_URL: https://sonarcloud.io
         with:
           args: >
-            -Dsonar.projectKey=secure-pipeline-demo
+            -Dsonar.projectKey=Aneeqa-Inamdar_secure-pipeline-demo
             -Dsonar.organization=aneeqa-inamdar
