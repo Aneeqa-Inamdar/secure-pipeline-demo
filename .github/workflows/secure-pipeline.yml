@@ -41,6 +41,12 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: https://sonarcloud.io
+        with:
+          args: >
+            -Dsonar.projectKey=Aneeqa-Inamdar_secure-pipeline-demo
+            -Dsonar.organization=aneeqa-inamdar
+            -Dsonar.sources=.
+            -Dsonar.exclusions=node_modules/**
 
 
   dast-zap:
@@ -49,9 +55,6 @@ jobs:
     needs: sast-sonarqube
 
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v3
-
       - name: Run OWASP ZAP Baseline Scan
         uses: zaproxy/action-baseline@v0.10.0
         with:
